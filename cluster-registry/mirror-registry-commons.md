@@ -54,7 +54,7 @@ Here it is visible the end point of the registry. Login with credentials user:"a
 
 - __(optional)__ in case the default self-signed certs are being used, please use the following procedure
   ```bash
-  sudo cp /etc/quay-install/quay-rootCA/rootCA.pem /etc/pki/ca-trust/source/anchors/
+  sudo cp ${HOME}/quay-install/quay-rootCA/rootCA.pem /etc/pki/ca-trust/source/anchors/
   ```
 
   ```bash
@@ -64,6 +64,7 @@ Here it is visible the end point of the registry. Login with credentials user:"a
 ### The following steps show how to mirror the Openshift Cluster installation packages
 
 Further documentation [HERE](https://docs.openshift.com/container-platform/4.12/installing/disconnected_install/installing-mirroring-disconnected.html)
+Public repositories [REPOS](https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/latest/)
 
 - Complete the secret file to login at the mirror registry and Red Hat registries, by  merging the `pull-secret.json` (cloud.redhat.com) and the credentials of the mirror registry.
   ```bash

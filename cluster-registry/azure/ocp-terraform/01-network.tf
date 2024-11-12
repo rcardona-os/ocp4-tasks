@@ -36,6 +36,19 @@ resource "azurerm_network_security_group" "vm_nsg" {
     destination_address_prefix = "Internet"
   }
 
+  # Allow Inbound on Port 443
+  security_rule {
+    name                       = "AllowInbound443"
+    priority                   = 1003
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "443"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
   # Allow Inbound on Port 7443
   security_rule {
     name                       = "AllowInbound7443"
@@ -48,8 +61,8 @@ resource "azurerm_network_security_group" "vm_nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-    
-  # Allow Inbound on Port 8080
+
+  # Allow Inbound on Port 8443
   security_rule {
     name                       = "AllowInbound8080"
     priority                   = 1005
