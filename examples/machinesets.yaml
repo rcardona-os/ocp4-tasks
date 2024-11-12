@@ -1,0 +1,47 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  labels:
+    machine.openshift.io/cluster-api-cluster: ocp1-logging
+  name: ocp1-logging-worker
+  namespace: openshift-machine-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: ocp1-logging
+      machine.openshift.io/cluster-api-machineset: ocp1-logging-worker
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: ocp1-logging
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: ocp1-logging-worker
+    spec:
+      metadata: {}
+      providerSpec:
+        value:
+          apiVersion: vsphereprovider.openshift.io/v1beta1
+          credentialsSecret:
+            name: vsphere-cloud-credentials
+          diskGiB: 120
+          kind: VSphereMachineProviderSpec
+          memoryMiB: 24576
+          metadata:
+            creationTimestamp: null
+          network:
+            devices:
+            - networkName: VLAN 40
+          numCPUs: 4
+          numCoresPerSocket: 4
+          snapshot: ""
+          template: ocp1-slnhm-rhcos
+          userDataSecret:
+            name: worker-user-data
+          workspace:
+            datacenter: GDNavantia
+            datastore: IBM Datastore Buque
+            folder: /GDNavantia/vm/IBM
+            resourcePool: /GDNavantia/host/Buque/Resources
+            server: gdnavantiavcsa.cis.es

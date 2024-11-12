@@ -1,0 +1,65 @@
+CLUSTER_API_CLUSTER = gpu-worker
+CLUSTER_API_MACHINESET = gpu-worker-eu-west-1c
+
+
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  labels:
+    machine.openshift.io/cluster-api-cluster: ${CLUSTER_API_CLUSTER}
+  name: ${CLUSTER_API_MACHINESET}
+  namespace: openshift-machine-api
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: ${CLUSTER_API_CLUSTER}
+      machine.openshift.io/cluster-api-machineset: ${CLUSTER_API_MACHINESET}
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: ${CLUSTER_API_CLUSTER}
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: ${CLUSTER_API_MACHINESET}
+    spec:
+      metadata: {}
+      providerSpec:
+        value:
+          ami:
+            id: ami-0aef183a3bbfeeaf3
+          apiVersion: awsproviderconfig.openshift.io/v1beta1
+          blockDevices:
+          - ebs:
+              encrypted: true
+              iops: 0
+              kmsKey:
+                arn: ""
+              volumeSize: 120
+              volumeType: gp2
+          credentialsSecret:
+            name: aws-cloud-credentials
+          deviceIndex: 0
+          iamInstanceProfile:
+            id: ocp4-dj6zt-worker-profile
+          instanceType: g3.4xlarge
+          kind: AWSMachineProviderConfig
+          metadata:
+          placement:
+            availabilityZone: eu-west-1c
+            region: eu-west-1
+          securityGroups:
+          - filters:
+            - name: tag:Name
+              values:
+              - ocp4-dj6zt-worker-sg
+          subnet:
+            filters:
+            - name: tag:Name
+              values:
+              - ocp4-dj6zt-private-eu-west-1c
+          tags:
+          - name: kubernetes.io/cluster/ocp4-dj6zt
+            value: owned
+          userDataSecret:
+            name: worker-user-data

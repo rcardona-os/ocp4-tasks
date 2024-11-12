@@ -1,0 +1,69 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  labels:
+    machine.openshift.io/cluster-api-cluster: aws-managed1-zfwnn
+  name: aws-managed1-zfwnn-${INFRA}-eu-west-2a
+  namespace: openshift-machine-api
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: aws-managed1-zfwnn
+      machine.openshift.io/cluster-api-machineset: aws-managed1-zfwnn-${INFRA}-eu-west-2a
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: aws-managed1-zfwnn
+        machine.openshift.io/cluster-api-machine-role: ${INFRA}
+        machine.openshift.io/cluster-api-machine-type: ${INFRA}
+        machine.openshift.io/cluster-api-machineset: aws-managed1-zfwnn-${INFRA}-eu-west-2a
+    spec:
+      metadata:
+        labels:
+          node-role.kubernetes.io/${INFRA}: ""
+          cluster.ocs.openshift.io/openshift-storage: ""
+      taints:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/infra
+      
+      providerSpec:
+        value:
+          ami:
+            id: ami-06f6e31ddd554f89d
+          apiVersion: awsproviderconfig.openshift.io/v1beta1
+          blockDevices:
+          - ebs:
+              encrypted: true
+              iops: 2000
+              kmsKey:
+                arn: ""
+              volumeSize: 100
+              volumeType: io1
+          credentialsSecret:
+            name: aws-cloud-credentials
+          deviceIndex: 0
+          iamInstanceProfile:
+            id: aws-managed1-zfwnn-worker-profile
+          instanceType: m5.2xlarge
+          kind: AWSMachineProviderConfig
+          metadata:
+            creationTimestamp: null
+          placement:
+            availabilityZone: eu-west-2a
+            region: eu-west-2
+          securityGroups:
+          - filters:
+            - name: tag:Name
+              values:
+              - aws-managed1-zfwnn-worker-sg
+          subnet:
+            filters:
+            - name: tag:Name
+              values:
+              - aws-managed1-zfwnn-private-eu-west-2a
+          tags:
+          - name: kubernetes.io/cluster/aws-managed1-zfwnn
+            value: owned
+          userDataSecret:
+            name: worker-user-data

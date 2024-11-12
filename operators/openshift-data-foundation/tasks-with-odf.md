@@ -1,0 +1,1 @@
+- Adding persistent storage to internal registry with Openshift Data Foundation [HERE](storage/internal-registry-persistent-storage.md)

@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: disk-gatherer
+  namespace: default
+  labels:
+    k8s-app: disk-gatherer
+spec:
+  selector:
+    matchLabels:
+      name: disk-gatherer
+  template:
+    metadata:
+      labels:
+        name: disk-gatherer
+    spec:
+      nodeSelector:
+        cluster.ocs.openshift.io/openshift-storage: ''
+      containers:
+      - name: collector
+        image: alpine:latest
+        imagePullPolicy: IfNotPresent
+        command: [ "sh", "-c" ]
+        args:
+        - cd /sys/block/;
+          echo "# NODE:${MY_NODE_NAME}";
+          for disk in nvm*; do
+            if [[ -f ${disk}/wwid ]]; then
+              echo "# $disk";
+              echo "- /dev/disk/by-id/nvme-$(cat ${disk}/wwid)";
+            fi;
+          done;
+          for disk in $(find /sys/devices -name wwid | xargs -n1 dirname); do
+            if [[ -d ${disk}/block ]]; then
+              echo "# $(ls -l ${disk}/block)";
+              echo "- /dev/disk/by-id/wwn-0x$(cat ${disk}/wwid | cut -c5- )";
+            fi;
+          done;
+          sleep '3600';
+        env:
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName

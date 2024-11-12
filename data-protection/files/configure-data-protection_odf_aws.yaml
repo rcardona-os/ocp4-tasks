@@ -1,0 +1,29 @@
+apiVersion: oadp.openshift.io/v1alpha1
+kind: DataProtectionApplication
+metadata:
+  name: adp-app
+  namespace: openshift-adp
+spec:
+  configuration:
+    velero:
+      featureFlags:
+        - EnableCSI
+      defaultPlugins:
+      - openshift
+      - aws
+      - csi
+  backupLocations:
+    - velero:
+        default: true
+        provider: aws
+        credential:
+            name: cloud-credentials
+            key: cloud
+        objectStorage:
+            bucket: "adp-eea72092-2f8b-4768-b2df-4f708f4cb965"
+            prefix: velero
+        config:
+            profile: default
+            region: "localstorage"
+            s3ForcePathStyle: "true"
+            s3Url: "http://s3.openshift-storage.svc/"

@@ -1,0 +1,24 @@
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/resourceName: bridge.network.kubevirt.io/linux-br0
+  name: network-0
+  namespace: vmtest
+spec:
+  config: >-
+    {
+      "name":"network-0",
+      "type":"cnv-bridge",
+      "cniVersion":"0.3.1",
+      "bridge":"linux-br0",
+      "macspoofchk":true,
+      "ipam":{
+        "type":"static",
+        "addresses":[
+            {
+                address": "192.168.10.0/24"
+            }
+        ]
+      }
+    }

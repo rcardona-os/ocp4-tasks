@@ -1,0 +1,18 @@
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/resourceName: bridge.network.kubevirt.io/my-bridge
+  name: network-vlan102
+  namespace: vmtest
+spec:
+  config: >-
+    {
+      "name":"network-vlan102",
+      "type":"cnv-bridge",
+      "cniVersion":"0.3.1",
+      "bridge":"vlan102-br",
+      "macspoofchk":true,
+      "ipam":{},
+      "vlan": 102
+    }

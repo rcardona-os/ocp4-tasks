@@ -1,0 +1,82 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  annotations:
+    machine.openshift.io/GPU: "0"
+    machine.openshift.io/memoryMb: "16384"
+    machine.openshift.io/vCPU: "4"
+  labels:
+    machine.openshift.io/cluster-api-cluster: ocp4-2zncp
+  name: infra-eu-west-1a
+  namespace: openshift-machine-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: ocp4-2zncp
+      machine.openshift.io/cluster-api-machineset: infra-eu-west-1a
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: ocp4-2zncp
+        machine.openshift.io/cluster-api-machine-role: infra
+        machine.openshift.io/cluster-api-machine-type: infra
+        machine.openshift.io/cluster-api-machineset: infra-eu-west-1a
+    spec:
+      metadata:
+        labels:
+          node-role.kubernetes.io/infra: ""
+          cluster.ocs.openshift.io/openshift-storage: ""
+      taints:
+      - effect: NoSchedule
+        key: node.ocs.openshift.io/storage
+        value: "true"
+      providerSpec:
+        value:
+          ami:
+            id: ami-0706a49df2a8357b6
+          apiVersion: machine.openshift.io/v1beta1
+          blockDevices:
+          - ebs:
+              encrypted: true
+              iops: 0
+              kmsKey:
+                arn: ""
+              volumeSize: 120
+              volumeType: gp3
+          - ebs:
+              encrypted: true
+              iops: 0
+              kmsKey:
+                arn: ""
+              volumeSize: 500
+              volumeType: gp3
+            deviceName: /dev/sdf
+          credentialsSecret:
+            name: aws-cloud-credentials
+          deviceIndex: 0
+          iamInstanceProfile:
+            id: ocp4-2zncp-worker-profile
+          instanceType: m6i.4xlarge
+          kind: AWSMachineProviderConfig
+          metadata:
+            creationTimestamp: null
+          metadataServiceOptions: {}
+          placement:
+            availabilityZone: eu-west-1a
+            region: eu-west-1
+          securityGroups:
+          - filters:
+            - name: tag:Name
+              values:
+              - ocp4-2zncp-worker-sg
+          subnet:
+            filters:
+            - name: tag:Name
+              values:
+              - ocp4-2zncp-private-eu-west-1a
+          tags:
+          - name: kubernetes.io/cluster/ocp4-2zncp
+            value: owned
+          userDataSecret:
+            name: worker-user-data
