@@ -42,7 +42,7 @@ $\textcolor{LightSalmon}  {\text{ NOTE: Check that port 8443 is open, as it is t
   ```
 
   ```bash
-  sudo ./mirror-registry install --quayHostname registry,sandbox2278opentlc.com \ 
+  sudo ./mirror-registry install --quayHostname registry.sandbox2278opentlc.com \ 
                                  --initUser admin --initPassword "quayPass123"
   ```
 
