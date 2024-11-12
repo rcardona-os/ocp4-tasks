@@ -1,3 +1,9 @@
+# Define the Resource Group
+resource "azurerm_resource_group" "private_rg" {
+  name     = "openenv-xnzv7p"
+  location = "East US"
+}
+
 # Define the Network Security Group (NSG) for internet access
 resource "azurerm_network_security_group" "vm_nsg" {
   name                = "private-vm-nsg"
