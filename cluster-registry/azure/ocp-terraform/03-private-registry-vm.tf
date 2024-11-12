@@ -34,14 +34,14 @@ resource "azurerm_linux_virtual_machine" "private_vm" {
   location            = azurerm_resource_group.private_rg.location
   resource_group_name = azurerm_resource_group.private_rg.name
   size                = "Standard_B2as_v2"  # 2 vCPUs, 8 GB RAM
-  admin_username      = "azureuser"
+  admin_username      = "ocpuser"
 
   network_interface_ids = [
     azurerm_network_interface.private_vm_nic.id
   ]
 
   admin_ssh_key {
-    username   = "azureuser"
+    username   = "ocpuser"
     public_key = file("~/.ssh/id_rsa.pub")  # Path to your SSH public key
   }
 
