@@ -24,7 +24,7 @@ Full documentation [HERE](https://docs.openshift.com/container-platform/4.12/ins
 
   - A hostname with a resolvable URL
 
-`NOTE: Check that port 8443 is open, as it is the default port where the installer configures the quay service. However that port can also be customized.`
+$\textcolor{LightSalmon}  {\text{ NOTE: Check that port 8443 is open, as it is the default port where the installer configures the quay service. However that port can also be customized. }}$
 
 - Install podman
   ```bash
