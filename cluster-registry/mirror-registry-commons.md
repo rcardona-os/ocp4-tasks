@@ -42,7 +42,8 @@ Full documentation [HERE](https://docs.openshift.com/container-platform/4.12/ins
   ```
 
   ```bash
-  sudo ./mirror-registry install --initUser admin --initPassword "quayPass123"
+  sudo ./mirror-registry install --quayHostname registry,sandbox2278opentlc.com \ 
+                                 --initUser admin --initPassword "quayPass123"
   ```
 
 ![`Example Command Launch`](media/quay-0.png)
