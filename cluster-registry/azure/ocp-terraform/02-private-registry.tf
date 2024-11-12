@@ -5,6 +5,7 @@ resource "azurerm_public_ip" "private_vm_public_ip" {
   resource_group_name = azurerm_resource_group.private_rg.name
   allocation_method   = "Static"  # Use "Static" instead of "Dynamic" for Standard SKU
   sku                 = "Standard"  # Specify Standard SKU if needed
+  domain_name_label   = "registry-ocp"  # Set a unique DNS label here
 }
 
 # Define a Network Interface
@@ -47,6 +48,7 @@ resource "azurerm_linux_virtual_machine" "private_vm" {
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
+    disk_size_gb         = 128  # Increase the disk size to 128GB
   }
 
   source_image_reference {
