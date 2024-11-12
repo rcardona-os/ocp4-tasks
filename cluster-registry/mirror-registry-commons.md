@@ -2,7 +2,7 @@
 
 The mirror registry is a small and streamlined container registry used as a target for mirroring the required container images of OpenShift Container Platform for disconnected installations.
 
-FUll documentation [HERE](https://docs.openshift.com/container-platform/4.12/installing/disconnected_install/installing-mirroring-creating-registry.html)
+Full documentation [HERE](https://docs.openshift.com/container-platform/4.12/installing/disconnected_install/installing-mirroring-creating-registry.html)
 
 - Prerequisites
 
