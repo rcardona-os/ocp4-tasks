@@ -64,7 +64,7 @@ Here it is visible the end point of the registry. Login with credentials user:"a
 
 - Further documentation [HERE](https://docs.openshift.com/container-platform/4.12/installing/disconnected_install/installing-mirroring-disconnected.html)
 
-- Public repositories [REPOS](https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/latest/)
+- Public repositories (mirrors) [REPOS](https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/latest/)
 
 - Complete the secret file to login at the mirror registry and Red Hat registries, by  merging the `pull-secret.json` (cloud.redhat.com) and the credentials of the mirror registry.
   ```bash
@@ -73,7 +73,7 @@ Here it is visible the end point of the registry. Login with credentials user:"a
 
 - Load the needed variables to mirror the images for OCP v4.12
   ```bash
-  export OCP_RELEASE="4.12.2"
+  export OCP_RELEASE="4.16.3"
   export LOCAL_REGISTRY="registry.sandbox2278.opentlc.com:8443"
   export LOCAL_REPOSITORY="ocp4/openshift4"
   export PRODUCT_REPO="openshift-release-dev"
