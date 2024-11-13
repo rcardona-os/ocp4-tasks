@@ -64,11 +64,13 @@ Here it is visible the end point of the registry. Login with credentials user:"a
 
 #### Installing oc binary
 ```bash
-curl -LO "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz" && \
+curl -LO "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz"
     
-tar -xvzf openshift-client-linux.tar.gz && \
+tar -xvzf openshift-client-linux.tar.gz
     
-sudo mv oc /usr/local/bin/oc && sudo chmod +x /usr/local/bin/oc
+sudo mv oc /usr/local/bin/oc
+
+sudo chmod +x /usr/local/bin/oc
 ```
 
 ### The following steps show how to mirror the Openshift Cluster installation packages
