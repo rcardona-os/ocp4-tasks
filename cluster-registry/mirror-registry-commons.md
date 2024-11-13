@@ -20,6 +20,8 @@ Full documentation [HERE](https://docs.openshift.com/container-platform/4.12/ins
 
   - 8 GB of RAM.
 
+  - Binaries: oc
+
   - About 12 GB for OpenShift Container Platform 4.12 release images, or about 358 GB for OpenShift Container Platform 4.12 release images and OpenShift Container Platform 4.12 Red Hat Operator images. Up to 1 TB per stream or more is suggested.
 
   - A hostname with a resolvable URL
@@ -59,6 +61,15 @@ Here it is visible the end point of the registry. Login with credentials user:"a
   ```bash
   sudo update-ca-trust
   ```
+
+#### Installing oc binary
+```bash
+curl -LO "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz" && \
+    
+tar -xvzf openshift-client-linux.tar.gz && \
+    
+sudo mv oc /usr/local/bin/oc && sudo chmod +x /usr/local/bin/oc
+```
 
 ### The following steps show how to mirror the Openshift Cluster installation packages
 
