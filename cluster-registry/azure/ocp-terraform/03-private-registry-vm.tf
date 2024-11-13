@@ -48,7 +48,7 @@ resource "azurerm_linux_virtual_machine" "private_vm" {
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
-    disk_size_gb         = 128  # Increase the disk size to 128GB
+    disk_size_gb         = 300  # Increase the disk size to 128GB
   }
 
   source_image_reference {

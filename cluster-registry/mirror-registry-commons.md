@@ -55,7 +55,7 @@ Here it is visible the end point of the registry. Login with credentials user:"a
 
 - __(optional)__ in case the default self-signed certs are being used, please use the following procedure
   ```bash
-  sudo cp ${HOME}/quay-install/quay-rootCA/rootCA.pem /etc/pki/ca-trust/source/anchors/
+  sudo cp /root/quay-install/quay-rootCA/rootCA.pem /etc/pki/ca-trust/source/anchors/
   ```
 
   ```bash
