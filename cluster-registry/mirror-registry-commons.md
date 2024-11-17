@@ -221,3 +221,20 @@ ex.
   ```
 
 
+---
+
+extract certs from quay registry
+```bash
+openssl s_client -connect registry.ocp-private.com:8443 -showcerts
+```
+
+NOTE: When configuring OpenShift with a private registry, you need to add the appropriate certificate to the install-config.yaml. Based on the output of the openssl s_client command you provided, the certificate that should be added is the Root CA Certificate (the one at the top of the chain). 
+
+Certificates in Your Output
+Certificate 0: This is the server certificate (quay-enterprise), issued by registry.ocp-private.com. It is the direct certificate used for communication.
+Certificate 1: This is the issuer's certificate (registry.ocp-private.com), which is the Root CA. This is the certificate you should include because it is responsible for verifying the chain of trust.
+
+- The Root CA certificate is marked as:
+```text
+i:C = US, ST = VA, L = New York, O = Quay, OU = Division, CN = registry.ocp-private.com
+```
