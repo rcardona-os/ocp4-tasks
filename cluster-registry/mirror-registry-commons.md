@@ -33,7 +33,7 @@ $\textcolor{LightSalmon}  {\text{ NOTE: Check that port 8443 is open, as it is t
   sudo dnf install podman -y
   ```
 
-- Download the `mirror-registry` binary
+- Download the `mirror-registry` binar
   ```bash
   wget https://developers.redhat.com/content-gateway/file/pub/openshift-v4/clients/mirror-registry/1.3.9/mirror-registry.tar.gz
   ``` 
