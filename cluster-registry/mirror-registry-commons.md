@@ -4,7 +4,7 @@ The mirror registry is a small and streamlined container registry used as a targ
 
 $\textcolor{blue}  {\text{Creating a mirror full documentation}}$ [__HERE__](https://docs.openshift.com/container-platform/4.12/installing/disconnected_install/installing-mirroring-creating-registry.html)
 
-Mirroting to a fully diconnected registry from a disk [__HERE__](https://docs.openshift.com/container-platform/4.17/disconnected/mirroring/installing-mirroring-disconnected.html#oc-mirror-mirror-to-disk_installing-mirroring-disconnected)
+__Mirroting to a fully diconnected registry from a disk__ [__HERE__](https://docs.openshift.com/container-platform/4.17/disconnected/mirroring/installing-mirroring-disconnected.html#oc-mirror-mirror-to-disk_installing-mirroring-disconnected)
 
 - Prerequisites
 
