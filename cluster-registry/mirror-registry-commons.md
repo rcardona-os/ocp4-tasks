@@ -32,7 +32,7 @@ $\textcolor{LightSalmon}  {\text{ NOTE: Check that port 8443 is open, as it is t
 
 - Install podman
   ```bash
-  sudo dnf install podman -y
+  sudo dnf install podman -yYY
   ```
 
 - Download the `mirror-registry` binary
