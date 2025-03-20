@@ -1,6 +1,6 @@
 #### - datascience service account
 ```bash
-$ oc crete sa datascience
+$ oc create sa datascience
 ```
 
 #### - create security context constrain
