@@ -45,12 +45,18 @@ done
 ```
 
 ```text
-Roles:    worker
-          feature.node.kubernetes.io/pci-10de.present=true
-          feature.node.kubernetes.io/pci-1d0f.present=true
-Roles:    worker
-          feature.node.kubernetes.io/pci-1013.present=true
-          feature.node.kubernetes.io/pci-8086.present=true
+Node: ip-10-0-43-106.eu-west-1.compute.internal
+Roles:              worker
+                    feature.node.kubernetes.io/pci-10de.present=true
+                    feature.node.kubernetes.io/pci-1d0f.present=true
+Node: ip-10-0-7-27.eu-west-1.compute.internal
+Roles:              worker
+                    feature.node.kubernetes.io/pci-10de.present=true
+                    feature.node.kubernetes.io/pci-1d0f.present=true
+Node: ip-10-0-85-102.eu-west-1.compute.internal
+Roles:              worker
+                    feature.node.kubernetes.io/pci-10de.present=true
+                    feature.node.kubernetes.io/pci-1d0f.present=true
 ```
 
 #### 2 - Installing the NVIDIA GPU Operator by using the web console
