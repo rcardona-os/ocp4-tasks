@@ -28,7 +28,7 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
 ----
 
 #### - Installing the Node Feature Discovery Operator
-- In the GUI, For additional ]information](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/specialized_hardware_and_driver_enablement/psap-node-feature-discovery-operator)
+- In the GUI, For additional [information](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/specialized_hardware_and_driver_enablement/psap-node-feature-discovery-operator)
 
   - In the OpenShift Container Platform web console, click **Operators > OperatorHub**
   - Choose **Node Feature Discovery** from the list of available Operators, and then click **Install**
@@ -52,7 +52,7 @@ Roles:    worker
 #### - Installing the NVIDIA GPU Operator by using the web console
 - In the OpenShift Container Platform web console from the side menu, navigate to **Operators > OperatorHub** and select **All Projects**.
 
-- In **Operators > OperatorHub**, search for the **NVIDIA GPU Operator**. For additional ]information](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/operators/administrator-tasks#olm-adding-operators-to-a-cluster)
+- In **Operators > OperatorHub**, search for the **NVIDIA GPU Operator**. For additional [information](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/operators/administrator-tasks#olm-adding-operators-to-a-cluster)
 
 - Select the NVIDIA GPU Operator, click Install. In the subsequent screen click Install.
 
