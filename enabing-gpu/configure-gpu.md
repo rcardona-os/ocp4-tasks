@@ -69,7 +69,7 @@ Roles:              worker
 
 - Create the ClusterPolicy (in case it did not happen on operator installation). If you install the NVIDIA GPU Operator using OperatorHub (via the OpenShift Web Console) and choose the "Automatic" install strategy, then the Operator will install itself. If it fails to happen create it manually. 
 
-A ClusterPolicy is a Custom Resource Definition (CRD) that acts as a high-level configuration controller for deploying and managing NVIDIA GPU components in an OpenShift or Kubernetes cluster. It defines how the NVIDIA GPU Operator should deploy its stack, including:
+A **ClusterPolicy** is a Custom Resource Definition (CRD) that acts as a high-level configuration controller for deploying and managing NVIDIA GPU components in an OpenShift or Kubernetes cluster. It defines how the NVIDIA GPU Operator should deploy its stack, including:
 
    - Drivers (for GPU hardware support)
    - Container runtime (NVIDIA Container Toolkit for GPU-accelerated containers)
