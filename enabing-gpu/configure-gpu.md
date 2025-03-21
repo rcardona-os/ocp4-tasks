@@ -34,7 +34,16 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
   - Choose **Node Feature Discovery** from the list of available Operators, and then click **Install**
   - On the **Install Operator** page, select **A specific namespace on the cluster**, and then click **Install**. You do not need to create a namespace because it is created for you.
 
-- Verification
+- Verify that the Node Feature Discovery Operator is functioning correctly
 
-  - Navigate to the **Operators > Installed Operators** page
-  - Ensure that **Node Feature Discovery** is listed in the **openshift-nfd** project with a **Status** of **InstallSucceeded**
+The Node Feature Discovery Operator uses vendor PCI IDs to identify hardware in a node. NVIDIA uses the PCI ID 10de. Use the OpenShift Container Platform web console or the CLI to verify that the Node Feature Discovery Operator is functioning correctly.
+
+- In the OpenShift Container Platform web console, click Compute > Nodes from the side menu.
+- Select a worker node that you know contains a GPU.
+- Click the Details tab.
+
+Under Node labels verify that the following label is present
+
+```text
+feature.node.kubernetes.io/pci-10de.present=true
+```
