@@ -37,7 +37,7 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
 - Verify that the Node Feature Discovery Operator is functioning correctly. The Node Feature Discovery Operator uses vendor PCI IDs to identify hardware in a node. NVIDIA uses the **PCI ID 10de**.
 
 ```bash
-$ oc describe $NODE | grep -iE 'Roles|pci' | grep -v master
+$ oc describe $NODE | grep -iE 'roles|pci' | grep -v master
 ```
 
 ```text
