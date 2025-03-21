@@ -1,4 +1,3 @@
----
 
 #### - Pre-checks
 
@@ -23,7 +22,7 @@ NAME             IMAGE REPOSITORY                                               
 driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driver-toolkit   417.94.202501071621-0,latest   55 minutes ago
 ```
 
----
+----
 
 #### - Installing the Node Feature Discovery Operator
 - In the GUI
