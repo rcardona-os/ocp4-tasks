@@ -37,7 +37,11 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
 - Verify that the Node Feature Discovery Operator is functioning correctly. The Node Feature Discovery Operator uses vendor PCI IDs to identify hardware in a node. NVIDIA uses the **PCI ID 10de**.
 
 ```bash
-$ oc describe $NODE | grep -iE 'roles|pci' | grep -v master
+$ for node in $(oc get nodes -l node-role.kubernetes.io/worker -o jsonpath='{.items[*].metadata.name}'); do
+  echo " Node: $node"
+  oc describe node "$node" | grep -iE 'roles|pci'
+done
+
 ```
 
 ```text
@@ -65,6 +69,6 @@ When installing the NVIDIA GPU Operator, a custom resource definition for a Clus
 
 - Click Create. This step might take 10-20 minutes depending on the network latency.
 
-- The status of the newly deployed ClusterPolicy gpu-cluster-policy for the NVIDIA GPU Operator changes to State:ready when the installation succeeds.
+- The status of the newly deployed ClusterPolicy *gpu-cluster-policy* for the NVIDIA GPU Operator changes to **State:ready** when the installation succeeds.
 
 $`\textcolor{red}{\text{NOTE: These steps differ when using NVIDIA vGPU}}`$
