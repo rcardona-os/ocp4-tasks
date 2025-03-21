@@ -97,7 +97,6 @@ $ oc new-project test-gpu
 
 ```bash
 $ cat << EOF | oc create -f -
-
 apiVersion: v1
 kind: Pod
 metadata:
@@ -114,10 +113,10 @@ EOF
 ```
 
 ```bash
-oc logs cuda-vectoradd
+$ oc logs cuda-vectoradd
 ```
 
-It should give you and output like this:
+It should outputs the follows:
 
 ```text
 [Vector addition of 50000 elements]
@@ -127,3 +126,5 @@ Copy output data from the CUDA device to the host memory
 Test PASSED
 Done
 ````
+
+#### 4 - eeeeee
