@@ -1,4 +1,4 @@
-#### - pre-checks
+#### - Pre-checks
 
 - If the output from the preceding command is empty NOT empty {}, like in the example below, then teh setting is fine, otherwise the cluster is affected and it must configure the registry to use storage.
 ```bash
@@ -21,7 +21,7 @@ NAME             IMAGE REPOSITORY                                               
 driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driver-toolkit   417.94.202501071621-0,latest   55 minutes ago
 ```
 
-#### - installing the Node Feature Discovery Operator
+#### - Installing the Node Feature Discovery Operator
 - In the GUI
 
   - In the OpenShift Container Platform web console, click **Operators > OperatorHub**
