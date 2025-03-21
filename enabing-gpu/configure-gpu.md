@@ -2,7 +2,7 @@
 STARTS HERE!
 
 ----
-#### - Pre-checks
+#### 0 - Pre-checks
 
 - If the output from the preceding command is empty NOT empty {}, like in the example below, then teh setting is fine, otherwise the cluster is affected and it must configure the registry to use storage.
 ```bash
@@ -27,7 +27,7 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
 
 ----
 
-#### - Installing the Node Feature Discovery Operator
+#### 1 - Installing the Node Feature Discovery Operator
 - In the GUI, For additional [information](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/specialized_hardware_and_driver_enablement/psap-node-feature-discovery-operator)
 
   - In the OpenShift Container Platform web console, click **Operators > OperatorHub**
@@ -49,7 +49,7 @@ Roles:    worker
           feature.node.kubernetes.io/pci-8086.present=true
 ```
 
-#### - Installing the NVIDIA GPU Operator by using the web console
+#### 2 - Installing the NVIDIA GPU Operator by using the web console
 - In the OpenShift Container Platform web console from the side menu, navigate to **Operators > OperatorHub** and select **All Projects**.
 
 - In **Operators > OperatorHub**, search for the **NVIDIA GPU Operator**. For additional [information](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/operators/administrator-tasks#olm-adding-operators-to-a-cluster)
