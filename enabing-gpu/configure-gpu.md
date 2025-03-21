@@ -127,4 +127,10 @@ Test PASSED
 Done
 ````
 
-#### 4 - eeeeee
+#### 4 - Getting information about the GPU device
+
+```bash
+$ oc project nvidia-gpu-operator && \
+POD_NAME=$(oc get pod -o name -l openshift.driver-toolkit=true | grep nvidia-driver-daemonset | head -n 1) && \
+oc exec -it $POD_NAME -- nvidia-smi
+```
