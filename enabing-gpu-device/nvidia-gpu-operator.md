@@ -45,6 +45,8 @@ done
 
 ```
 
+The output should be as follows:
+
 ```text
 Node: ip-10-0-43-106.eu-west-1.compute.internal
 Roles:              worker
@@ -116,7 +118,7 @@ EOF
 $ oc logs cuda-vectoradd
 ```
 
-It should outputs the follows:
+The output should be as follows:
 
 ```text
 [Vector addition of 50000 elements]
@@ -135,7 +137,7 @@ POD_NAME=$(oc get pod -o name -l openshift.driver-toolkit=true | grep nvidia-dri
 oc exec -it $POD_NAME -- nvidia-smi
 ```
 
-It should outputs the follows:
+The output should be as follows:
 
 ```text
 Now using project "nvidia-gpu-operator" on server "https://api.ds.sandbox2905.opentlc.com:6443".
