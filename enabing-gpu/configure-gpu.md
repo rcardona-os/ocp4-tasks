@@ -41,10 +41,10 @@ $ oc describe $NODE | grep -iE 'Roles|pci' | grep -v master
 ```
 
 ```text
-Roles:        worker
-              feature.node.kubernetes.io/pci-10de.present=true
-              feature.node.kubernetes.io/pci-1d0f.present=true
-Roles:        worker
-              feature.node.kubernetes.io/pci-1013.present=true
-              feature.node.kubernetes.io/pci-8086.present=true
+Roles:    worker
+          feature.node.kubernetes.io/pci-10de.present=true
+          feature.node.kubernetes.io/pci-1d0f.present=true
+Roles:    worker
+          feature.node.kubernetes.io/pci-1013.present=true
+          feature.node.kubernetes.io/pci-8086.present=true
 ```
