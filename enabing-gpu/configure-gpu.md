@@ -56,3 +56,15 @@ Roles:    worker
 
 - Select the NVIDIA GPU Operator, click Install. In the subsequent screen click Install.
 
+💥 check 💥
+When installing the NVIDIA GPU Operator, a custom resource definition for a ClusterPolicy is created. If a ClusterPolicy that contains an empty specification, such as spec{}, the ClusterPolicy fails to deploy. If there is the case, follow the below steps:
+
+- In the OpenShift Container Platform web console, from the side menu, select Operators > Installed Operators, and click NVIDIA GPU Operator.
+
+- Select the ClusterPolicy tab, then click Create ClusterPolicy. The platform assigns the default name gpu-cluster-policy. The default are sufficient to get the GPU configured and running.
+
+- Click Create. This step might take 10-20 minutes depending on the network latency.
+
+- The status of the newly deployed ClusterPolicy gpu-cluster-policy for the NVIDIA GPU Operator changes to State:ready when the installation succeeds.
+
+$`\textcolor{red}{\text{NOTE: These steps differ when using NVIDIA vGPU}}`$
