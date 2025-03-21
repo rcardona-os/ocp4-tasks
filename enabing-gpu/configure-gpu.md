@@ -134,3 +134,28 @@ $ oc project nvidia-gpu-operator && \
 POD_NAME=$(oc get pod -o name -l openshift.driver-toolkit=true | grep nvidia-driver-daemonset | head -n 1) && \
 oc exec -it $POD_NAME -- nvidia-smi
 ```
+
+It should outputs the follows:
+
+```text
+Now using project "nvidia-gpu-operator" on server "https://api.ds.sandbox2905.opentlc.com:6443".
+Fri Mar 21 14:49:22 2025
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A10G                    On  |   00000000:00:1E.0 Off |                    0 |
+|  0%   21C    P8             23W /  300W |       1MiB /  23028MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
+```
