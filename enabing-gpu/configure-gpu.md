@@ -30,5 +30,5 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
 
 - Verification
 
-  - Navigate to the **Operators** > **Installed Operators** page
+  - Navigate to the **Operators > Installed Operators** page
   - Ensure that **Node Feature Discovery** is listed in the **openshift-nfd** project with a **Status** of **InstallSucceeded**
