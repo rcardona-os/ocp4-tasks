@@ -67,15 +67,24 @@ Roles:              worker
 
 - Select the NVIDIA GPU Operator, click Install. In the subsequent screen click Install.
 
-💥 check 💥
-When installing the NVIDIA GPU Operator, a custom resource definition for a ClusterPolicy is created. If a ClusterPolicy that contains an empty specification, such as spec{}, the ClusterPolicy fails to deploy. If there is the case, follow the below steps:
+- Create the ClusterPolicy, if you install the NVIDIA GPU Operator using OperatorHub (via the OpenShift Web Console) and choose the "Automatic" install strategy, then the Operator will install itself. If it fails to happen create it manually. 
 
-- In the OpenShift Container Platform web console, from the side menu, select Operators > Installed Operators, and click NVIDIA GPU Operator.
+A ClusterPolicy is a Custom Resource Definition (CRD) that acts as a high-level configuration controller for deploying and managing NVIDIA GPU components in an OpenShift or Kubernetes cluster. It defines how the NVIDIA GPU Operator should deploy its stack, including:
 
-- Select the ClusterPolicy tab, then click Create ClusterPolicy. The platform assigns the default name gpu-cluster-policy. The default are sufficient to get the GPU configured and running.
+   - Drivers (for GPU hardware support)
+   - Container runtime (NVIDIA Container Toolkit for GPU-accelerated containers)
+   - Device plugins (to expose GPUs to workloads)
+   - Monitoring tools (DCGM, DCGM Exporter)
+   - Feature discovery (GPU detection and labeling)
 
-- Click Create. This step might take 10-20 minutes depending on the network latency.
+- To create a ClusterPolicy follow the steps:
 
-- The status of the newly deployed ClusterPolicy *gpu-cluster-policy* for the NVIDIA GPU Operator changes to **State:ready** when the installation succeeds.
+   - In the OpenShift Container Platform web console, from the side menu, select Operators > Installed Operators, and click NVIDIA GPU Operator.
+
+   - Select the ClusterPolicy tab, then click Create ClusterPolicy. The platform assigns the default name gpu-cluster-policy. The default are sufficient to get the GPU configured and running.
+
+   - Click Create. This step might take 5-10 minutes depending on the network latency and cluster resoruces.
+
+   - The status of the newly deployed ClusterPolicy *gpu-cluster-policy* for the NVIDIA GPU Operator changes to **State:ready** when the installation succeeds.
 
 $`\textcolor{red}{\text{NOTE: These steps differ when using NVIDIA vGPU}}`$
