@@ -36,11 +36,11 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
 
 - Verify that the Node Feature Discovery Operator is functioning correctly. The Node Feature Discovery Operator uses vendor PCI IDs to identify hardware in a node. NVIDIA uses the PCI ID 10de. Use the OpenShift Container Platform web console or the CLI to verify that the Node Feature Discovery Operator is functioning correctly.
 
-  - In the OpenShift Container Platform web console, click Compute > Nodes from the side menu.
+  - In the OpenShift Container Platform web console, click **Compute > Nodes** from the side menu.
   - Select a worker node that you know contains a GPU.
-  - Click the Details tab.
+  - Click the **Details** tab.
 
-Under Node labels verify that the following label is present
+Under **Node labels** verify that the following label is present
 
 ```text
 feature.node.kubernetes.io/pci-10de.present=true
