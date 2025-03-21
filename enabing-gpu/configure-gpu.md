@@ -88,3 +88,42 @@ A **ClusterPolicy** is a Custom Resource Definition (CRD) that acts as a high-le
    - The status of the newly deployed ClusterPolicy *gpu-cluster-policy* for the NVIDIA GPU Operator changes to **State:ready** when the installation succeeds.
 
 $`\textcolor{red}{\text{NOTE: These steps differ when using NVIDIA vGPU}}`$
+
+#### 3 - Run GPU test pod
+
+```bash
+$ oc new-project test-gpu
+```
+
+```bash
+$ cat << EOF | oc create -f -
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cuda-vectoradd
+spec:
+ restartPolicy: OnFailure
+ containers:
+ - name: cuda-vectoradd
+   image: "nvidia/samples:vectoradd-cuda11.2.1"
+   resources:
+     limits:
+       nvidia.com/gpu: 1
+EOF
+```
+
+```bash
+oc logs cuda-vectoradd
+```
+
+It should give you and output like this:
+
+  ```text
+  [Vector addition of 50000 elements]
+  Copy input data from the host memory to the CUDA device
+  CUDA kernel launch with 196 blocks of 256 threads
+  Copy output data from the CUDA device to the host memory
+  Test PASSED
+  Done
+````
