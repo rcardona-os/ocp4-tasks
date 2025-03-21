@@ -39,7 +39,7 @@ driver-toolkit   image-registry.openshift-image-registry.svc:5000/openshift/driv
 ```bash
 $ for node in $(oc get nodes -l node-role.kubernetes.io/worker -o jsonpath='{.items[*].metadata.name}')
 do
-  echo " Node: $node"
+  echo "Node: $node"
   oc describe node "$node" | grep -iE 'roles|pci'
 done
 
