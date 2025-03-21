@@ -1,4 +1,7 @@
 
+STARTS HERE!
+
+----
 #### - Pre-checks
 
 - If the output from the preceding command is empty NOT empty {}, like in the example below, then teh setting is fine, otherwise the cluster is affected and it must configure the registry to use storage.
