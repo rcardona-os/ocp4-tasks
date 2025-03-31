@@ -1,12 +1,6 @@
-
-
-### COMPILATION OF OPENSHIFT CLUSTER TASKS
-
-update
-=======
 #### ocp4-dr-ha
 
-
+```bash
 $ cat << EOF | oc create -f -
 apiVersion: ramendr.openshift.io/v1alpha1
 kind: DRPolicy
@@ -18,3 +12,4 @@ spec:
     - az2
   schedulingInterval: 1m
 EOF
+```
