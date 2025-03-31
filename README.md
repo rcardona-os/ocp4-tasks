@@ -3,4 +3,4 @@
 =======
 ### COMPILATION OF OPENSHIFT CLUSTER TASKS
 
-new update
+update
