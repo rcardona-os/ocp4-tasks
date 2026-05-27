@@ -1,0 +1,49 @@
+apiVersion: v1
+baseDomain: example.net
+metadata:
+  name: oks
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 3        
+  platform: {}       
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+  platform:
+    vsphere:
+      cpus: 4
+      memoryMB: 16384
+      osDisk:
+        diskSizeGB: 120
+platform:
+  vsphere:
+    apiVIPs:
+      - 10.231.194.21
+    ingressVIPs:
+      - 10.231.194.25
+    vcenters:
+      - server: aeslaba200020.XXXX.net
+        user: openshift@vsphere.local
+        password: 'YOUR_VCENTER_PASSWORD_HERE' # <-- PASTE REAL PASSWORD
+        datacenters:
+          - "ESDEF"
+    failureDomains:
+      - name: oks-failure-domain
+        region: "ESDEF-region"
+        zone: "ESDEF-zone"
+        server: aeslaba200020.XXXX.net
+        topology:
+          datacenter: "ESDEF"
+          computeCluster: CL_VMWe
+          datastore: SDDDIFT
+          networks:
+            - CPD2_pre_3123
+fips: false
+pullSecret: '{"auths":{"cloud.openshift.com":{ ...PASTE YOUR FULL SECRET HERE... }}}' # <-- PASTE FULL PULL SECRET
+sshKey: 'ssh-ed25519 AAA... YOUR_SSH_KEY_HERE' # <-- PASTE YOUR PUBLIC SSH KEY
+proxy:
+  httpProxy: http://proxysocks:80
+  httpsProxy: http://proxysocks:80
+  noProxy: .example.net,10.231.194.0/24 # <-- VERIFY SUBNETS
